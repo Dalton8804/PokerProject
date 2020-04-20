@@ -63,11 +63,11 @@ public class Poker extends Application {
 			
 			System.out.println(cardList.size());
 			for (int i = 0; i<5; ++i) {
-				exitAnim(currentHand[i].getCardImageView(), cardHBox);
-				phantom.play();
+				//exitAnim(currentHand[i].getCardImageView(), cardHBox);
+				//phantom.play();
 				currentHand[i] = cardList.remove(i);
 				imagesDisplayed[i].setImage(currentHand[i].getCardImage());
-				phantom.setOnFinished(e -> {dealAnim(currentHand[i].getCardImageView(), cardHBox);});
+				//phantom.setOnFinished(e -> {dealAnim(currentHand[i].getCardImageView(), cardHBox);});
 			}
 			if (cardList.size()<8) {
 				setDeck();
