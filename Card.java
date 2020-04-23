@@ -16,14 +16,20 @@ public class Card {
 	private Image cardImage;
 	// Card constructor that takes the image number as an int and converts it into a value and face
 	public Card(int i) {
-		cardValue = ((i) % 13);
-		if (cardValue == 0)
-			cardValue = 13;
-		switch((i-1)/13) {
-		case 0: cardFace = "Spades"; break;
-		case 1: cardFace = "Hearts"; break;
-		case 2: cardFace = "Diamonds"; break;
-		case 3: cardFace = "Clubs"; break;
+		if (i<=52) {
+			cardValue = ((i) % 13);
+			if (cardValue == 0)
+				cardValue = 13;
+			switch((i-1)/13) {
+			case 0: cardFace = "Spades"; break;
+			case 1: cardFace = "Hearts"; break;
+			case 2: cardFace = "Diamonds"; break;
+			case 3: cardFace = "Clubs"; break;
+			}
+		}
+		else {
+			cardValue = 99;
+			cardFace = "Joker";
 		}
 		cardImageView = new ImageView(new Image("file:./card/"+i+".png"));
 		cardImage = new Image("file:./card/"+i+".png");
