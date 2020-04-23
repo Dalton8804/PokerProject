@@ -1,12 +1,10 @@
 // Dalton Avery
 // Poker3
 // Card.java
-// This is a class to support Poker3.java in order to properly check the hands
+// This is a class to support Poker.java in order to properly check the hands and set deck
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-// Dalton Avery
 
 public class Card {
 	
