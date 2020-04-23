@@ -20,21 +20,21 @@ class checkHand {
 		if (isRoyalFlush())
 			winType = "RoyalFlush";
 		else if (isStraightFlush())
-			winType = "StraightFlush";
+			winType =  "StraightFlush";
 		else if (isFourOfaKind())
-			winType = "FourOfaKind";
+			winType =  "FourOfaKind";
 		else if (isFullHouse())
-			winType = "FullHouse";
+			winType =  "FullHouse";
 		else if (isFlush())
-			winType = "Flush";
+			winType =  "Flush";
 		else if (isStraight())
-			winType = "Straight";
+			winType =  "Straight";
 		else if (isThreeOfaKind())
-			winType = "ThreeOfaKind";
+			winType =  "ThreeOfaKind";
 		else if (isTwoPair())
-			winType = "TwoPair";
+			winType =  "TwoPair";
 		else
-			winType = "";
+			winType =  "";
 		
 		return winType;
 	}
@@ -115,14 +115,14 @@ class checkHand {
 	// *************************************************************
 	// checks hand for 3 of a kind
 	static boolean isThreeOfaKind(){
-		if ((hand[2].getCardValue() == hand[1].getCardValue()) && (hand[2].getCardValue() == hand[3].getCardValue())) {
+		if ((hand[0].getCardValue() == hand[1].getCardValue()) && (hand[0].getCardValue() == hand[2].getCardValue())) {
 			System.out.println("ThreeOfaKind1");return true;
 		}
-		else if ((hand[1].getCardValue() == hand[0].getCardValue()) && (hand[1].getCardValue() == hand[2].getCardValue())) {
-			System.out.println("ThreeOfaKind1");return true;
+		else if ((hand[1].getCardValue() == hand[2].getCardValue()) && (hand[1].getCardValue() == hand[3].getCardValue())) {
+			System.out.println("ThreeOfaKind2");return true;
 		}
-		else if ((hand[2].getCardValue() == hand[2].getCardValue()) && (hand[3].getCardValue() == hand[4].getCardValue())) {
-			System.out.println("ThreeOfaKind1");return true;
+		else if ((hand[2].getCardValue() == hand[3].getCardValue()) && (hand[2].getCardValue() == hand[4].getCardValue())) {
+			System.out.println("ThreeOfaKind3");return true;
 		}
 		else 
 			return false;
@@ -130,29 +130,19 @@ class checkHand {
 	// *************************************************************
 	// checks hand for 2 pair
 	static boolean isTwoPair(){
-		if (hand[0].getCardValue() != hand[1].getCardValue()) {
-				if ((hand[1].getCardValue() == hand[2].getCardValue()) && (hand[3].getCardValue() == hand[4].getCardValue())) {
-					System.out.println("TwoPair2");return true;
-				}
-				System.out.println("TwoPair1");
-				return false;
-		}
-		else if (hand[3].getCardValue() != hand[4].getCardValue()){	
+			if ((hand[0].getCardValue() == hand[1].getCardValue()) && (hand[2].getCardValue() == hand[3].getCardValue())) {
+				System.out.println("TwoPair1");return true;
+			}
+		
+			if ((hand[1].getCardValue() == hand[2].getCardValue()) && (hand[3].getCardValue() == hand[4].getCardValue())) {
+				System.out.println("TwoPair2");return true;
+			}
+		
+			if ((hand[0].getCardValue() == hand[1].getCardValue()) && (hand[3].getCardValue() == hand[4].getCardValue())) {
+				System.out.println("TwoPair3");return true;
+			}
+			return false;
 			
-				if ((hand[0].getCardValue() == hand[1].getCardValue()) && (hand[2].getCardValue() == hand[3].getCardValue())) {
-					System.out.println("TwoPair2");return true;
-				}
-				return false;
-		}
-		else if (hand[1].getCardValue() != hand[2].getCardValue()){	
-			
-				if ((hand[0].getCardValue() == hand[1].getCardValue()) && (hand[3].getCardValue() == hand[4].getCardValue())) {
-					System.out.println("TwoPair2");return true;
-				}
-				System.out.println("TwoPair3");
-				return false;
-		}
-		return false;
 	}
 	// *************************************************************
 	// checks for a pair
