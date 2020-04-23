@@ -130,18 +130,20 @@ class checkHand {
 	// *************************************************************
 	// checks hand for 2 pair
 	static boolean isTwoPair(){
-			if ((hand[0].getCardValue() == hand[1].getCardValue()) && (hand[2].getCardValue() == hand[3].getCardValue())) {
-				System.out.println("TwoPair1");return true;
-			}
-		
-			if ((hand[1].getCardValue() == hand[2].getCardValue()) && (hand[3].getCardValue() == hand[4].getCardValue())) {
-				System.out.println("TwoPair2");return true;
-			}
-		
-			if ((hand[0].getCardValue() == hand[1].getCardValue()) && (hand[3].getCardValue() == hand[4].getCardValue())) {
-				System.out.println("TwoPair3");return true;
-			}
-			return false;
+		if (isOnePair() && Joker)
+			return true;
+		if ((hand[0].getCardValue() == hand[1].getCardValue()) && (hand[2].getCardValue() == hand[3].getCardValue())) {
+			System.out.println("TwoPair1");return true;
+		}
+	
+		if ((hand[1].getCardValue() == hand[2].getCardValue()) && (hand[3].getCardValue() == hand[4].getCardValue())) {
+			System.out.println("TwoPair2");return true;
+		}
+	
+		if ((hand[0].getCardValue() == hand[1].getCardValue()) && (hand[3].getCardValue() == hand[4].getCardValue())) {
+			System.out.println("TwoPair3");return true;
+		}
+		return false;
 			
 	}
 	// *************************************************************
@@ -182,6 +184,5 @@ class checkHand {
             hand[min_index] = hand[i]; 
             hand[i] = temp; 
         } 
-		
 	}
 }
