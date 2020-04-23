@@ -1,3 +1,10 @@
+/* Dalton Avery, Josh Mallari, Nick Wade
+ * 4.23.2020
+ * This class is used to hold the methods used to check for a winning hand
+ * used in Poker.java
+ */
+
+
 class checkHand {
 	static Card[] hand = new Card[5];
 	static boolean Joker = false;
@@ -33,8 +40,9 @@ class checkHand {
 	}
 	
 	static boolean isRoyalFlush(){
-		if ((hand[0].getCardValue() == 10) && isStraightFlush())
-			return true;
+		if ((hand[0].getCardValue() == 10) && isStraightFlush()) {
+			System.out.println("ROYAL FLUSH");return true;
+		}
 		return false;
 	}
 	// *************************************************************done
@@ -51,17 +59,19 @@ class checkHand {
 		if (isThreeOfaKind() && Joker)
 			return true;
 		if (hand[0].getCardValue() != hand[1].getCardValue()) {
-			for (int i = 1; i<4; ++i) {
+			for (int i = 1; i<5; ++i) {
 				if (hand[i].getCardValue() != hand[i+1].getCardValue())
 					return false;
 			}
+			System.out.println("FourOfaKind1");
 			return true;
 		}
 		else {			
-			for (int i = 0; i<3; ++i) {
+			for (int i = 0; i<4; ++i) {
 				if (hand[i].getCardValue() != hand[i+1].getCardValue())
 					return false;
 			}
+			System.out.println("FourOfaKind2");
 			return true;
 		}
 	}
@@ -69,7 +79,8 @@ class checkHand {
 	// Checks if hand is a Full House
 	static boolean isFullHouse(){
 		if (isThreeOfaKind() && isTwoPair()) {
-			System.out.println("FullHouse");return true;
+			System.out.println("FullHouse");
+			return true;
 		}
 		return false ;
 	}
@@ -84,7 +95,7 @@ class checkHand {
 		System.out.println("Flush");
 		return true;
 	}
-	// *************************************************************add joker shit
+	// *************************************************************
 	// checks hand for a straight
 	static boolean isStraight(){
 		sortCardsByValue();
@@ -93,8 +104,8 @@ class checkHand {
 				if (hand[i].getCardValue() != hand[i+1].getCardValue()-1)
 					return false;
 			}
-			else if (hand[4].isAce())
-				if (hand[3].getCardValue() != 13)
+			else if (hand[0].isAce())
+				if (hand[4].getCardValue() != 13)
 					return false;
 				
 		}
@@ -104,13 +115,44 @@ class checkHand {
 	// *************************************************************
 	// checks hand for 3 of a kind
 	static boolean isThreeOfaKind(){
-		
-		return isOnePair();//isOnePair();
+		if ((hand[2].getCardValue() == hand[1].getCardValue()) && (hand[2].getCardValue() == hand[3].getCardValue())) {
+			System.out.println("ThreeOfaKind1");return true;
+		}
+		else if ((hand[1].getCardValue() == hand[0].getCardValue()) && (hand[1].getCardValue() == hand[2].getCardValue())) {
+			System.out.println("ThreeOfaKind1");return true;
+		}
+		else if ((hand[2].getCardValue() == hand[2].getCardValue()) && (hand[3].getCardValue() == hand[4].getCardValue())) {
+			System.out.println("ThreeOfaKind1");return true;
+		}
+		else 
+			return false;
 	}
 	// *************************************************************
 	// checks hand for 2 pair
 	static boolean isTwoPair(){
-		return isOnePair();//isOnePair();
+		if (hand[0].getCardValue() != hand[1].getCardValue()) {
+				if ((hand[1].getCardValue() == hand[2].getCardValue()) && (hand[3].getCardValue() == hand[4].getCardValue())) {
+					System.out.println("TwoPair2");return true;
+				}
+				System.out.println("TwoPair1");
+				return false;
+		}
+		else if (hand[3].getCardValue() != hand[4].getCardValue()){	
+			
+				if ((hand[0].getCardValue() == hand[1].getCardValue()) && (hand[2].getCardValue() == hand[3].getCardValue())) {
+					System.out.println("TwoPair2");return true;
+				}
+				return false;
+		}
+		else if (hand[1].getCardValue() != hand[2].getCardValue()){	
+			
+				if ((hand[0].getCardValue() == hand[1].getCardValue()) && (hand[3].getCardValue() == hand[4].getCardValue())) {
+					System.out.println("TwoPair2");return true;
+				}
+				System.out.println("TwoPair3");
+				return false;
+		}
+		return false;
 	}
 	// *************************************************************
 	// checks for a pair
