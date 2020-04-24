@@ -1,7 +1,8 @@
-// Dalton Avery
-// Poker3
-// Card.java
-// This is a class to support Poker.java in order to properly check the hands and set deck
+// Dalton Avery, Josh Mallari, Nick Wade
+// Group Project
+// Poker Game -- Card.java
+// Used to determine suits and values of cards, as well as return images of cards.
+// 4.23.2020
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
