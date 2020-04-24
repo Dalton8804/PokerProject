@@ -11,7 +11,8 @@ class checkHand {
 	static boolean Joker2 = false;
 	// *************************************************************done
 	static String checkWinner(Card[] newhand) {
-		
+		Joker = false;
+		Joker2 = false;
 		for (int i =0; i<=4; ++i)
 			hand[i] = newhand[i];
 		sortCardsByValue();
@@ -40,7 +41,7 @@ class checkHand {
 	}
 	
 	static boolean isRoyalFlush(){
-		if ((hand[0].getCardValue() == 10) && isStraightFlush()) {
+		if ((hand[1].getCardValue() == 10) && isStraightFlush()) {
 			System.out.println("ROYAL FLUSH");return true;
 		}
 		return false;
