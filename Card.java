@@ -30,8 +30,8 @@ public class Card {
 			cardValue = 99;
 			cardFace = "Joker";
 		}
-		cardImageView = new ImageView(new Image("file:./card/"+i+".png"));
-		cardImage = new Image("file:./card/"+i+".png");
+		cardImageView = new ImageView(new Image("/card/"+i+".png"));
+		cardImage = new Image("/card/"+i+".png");
 	}
 	
 	// returns the value of the card as an integer

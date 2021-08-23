@@ -5,7 +5,6 @@
 
 
 import java.util.ArrayList;
-
 import javafx.animation.PathTransition;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -55,8 +54,8 @@ public class Poker extends Application {
 		bankText.setFill(Color.NAVAJOWHITE); // color change
 		Text bankAmountText = new Text("$"+bankAmount); // displays amount left in the bank
 		bankAmountText.setFill(Color.NAVAJOWHITE); 
-		bankText.setFont(Font.font(20));
-		bankAmountText.setFont(Font.font(20));
+		bankText.setFont(Font.font("Arial",20));
+		bankAmountText.setFont(Font.font("Arial",20));
 		
 		// Setting up radio buttons for placing bets
 		HBox radioBettingButs = new HBox(); // Pane used to add radio Buttons
@@ -66,13 +65,17 @@ public class Poker extends Application {
 		
 		// FEATURE #5
 		TextField betAmtField = new TextField(); // text field for unique bets
+		betAmtField.setFont(Font.font("Arial"));
 		betAmtField.setStyle("-fx-background-color: navajowhite"); 
 		RadioButton bet1 = new RadioButton("$1"); // bet $1 radio 
+		bet1.setFont(Font.font("Arial"));
 		RadioButton betAll = new RadioButton("MAX"); // bet entire bank radio 
+		betAll.setFont(Font.font("Arial"));
 		bet1.setStyle("-fx-selected-color: navajowhite");
 		bet1.setStyle("-fx-text-fill: navajowhite");
 		betAll.setStyle("-fx-text-fill: navajowhite");
 		Text betAmtText = new Text("Enter bet:"); // on screen instruction text
+		betAmtText.setFont(Font.font("Arial"));
 		betAmtText.setFill(Color.NAVAJOWHITE);
 		ToggleGroup betButs = new ToggleGroup(); // add buttons to toggle group for exclusivity
 		bet1.setToggleGroup(betButs);
@@ -128,6 +131,7 @@ public class Poker extends Application {
 		 * and brings in new ones
 		 */
 		Button dealBtn = new Button("Deal");
+		dealBtn.setFont(Font.font("Arial"));
 		dealBtn.setOnAction(e -> {
 			for (int i=0; i<5; ++i) // sets discard to false player can reselect
 				discard[i] = false;
@@ -137,7 +141,7 @@ public class Poker extends Application {
 			for (int i = 0; i<5; ++i) {
 				
 				// flips card over
-				imagesDisplayed[i].setImage(new Image("file:./card/b2fv.png"));
+				imagesDisplayed[i].setImage(new Image("/card/b2fv.png"));
 				
 				//Animation to take cards out
 				PathTransition out = new PathTransition();
@@ -169,6 +173,7 @@ public class Poker extends Application {
 		 * and then checks for a winning hand
 		 */
 		Button drawBtn = new Button("Draw");
+		drawBtn.setFont(Font.font("Arial"));
 		drawBtn.setOnAction(e -> {
 			phantom.play();
 			
@@ -251,7 +256,7 @@ public class Poker extends Application {
 		imagesDisplayed[0].setOnMouseClicked(e -> {
 			
 			if (discard[0] == false) {
-				imagesDisplayed[0].setImage(new Image("file:./card/b2fv.png"));
+				imagesDisplayed[0].setImage(new Image("/card/b2fv.png"));
 				discard[0] = true;
 			}
 			else {
@@ -261,7 +266,7 @@ public class Poker extends Application {
 		});
 		imagesDisplayed[1].setOnMouseClicked(e -> {
 			if (discard[1] == false) {
-				imagesDisplayed[1].setImage(new Image("file:./card/b2fv.png"));
+				imagesDisplayed[1].setImage(new Image("/card/b2fv.png"));
 				discard[1] = true;
 			}
 			else {
@@ -271,7 +276,7 @@ public class Poker extends Application {
 		});
 		imagesDisplayed[2].setOnMouseClicked(e -> {
 			if (discard[2] == false) {
-				imagesDisplayed[2].setImage(new Image("file:./card/b2fv.png"));
+				imagesDisplayed[2].setImage(new Image("card/b2fv.png"));
 				discard[2] = true;
 			}
 			else {
@@ -281,7 +286,7 @@ public class Poker extends Application {
 		});
 		imagesDisplayed[3].setOnMouseClicked(e -> {
 			if (discard[3] == false) {
-				imagesDisplayed[3].setImage(new Image("file:./card/b2fv.png"));
+				imagesDisplayed[3].setImage(new Image("card/b2fv.png"));
 				discard[3] = true;
 			}
 			else {
@@ -291,7 +296,7 @@ public class Poker extends Application {
 		});
 		imagesDisplayed[4].setOnMouseClicked(e -> {
 			if (discard[4] == false) {
-				imagesDisplayed[4].setImage(new Image("file:./card/b2fv.png"));
+				imagesDisplayed[4].setImage(new Image("card/b2fv.png"));
 				discard[4] = true;
 			}
 			else {
@@ -310,6 +315,7 @@ public class Poker extends Application {
 		// ***********************************************************
 		// Text telling user to click cards to discard
 		Text clickCardsToDiscardText = new Text("Click Cards to Discard"); // on screen instructional text
+		clickCardsToDiscardText.setFont(Font.font("Arial"));
 		VBox discardTextBox = new VBox();
 		clickCardsToDiscardText.setFill(Color.NAVAJOWHITE);
 		discardTextBox.setAlignment(Pos.CENTER);
